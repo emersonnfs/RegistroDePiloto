@@ -70,6 +70,6 @@ Cp06Enterprise
 ---
 
 ## Video projeto em execução
-
+https://youtu.be/ZXhMbKuuK6w
 
 
