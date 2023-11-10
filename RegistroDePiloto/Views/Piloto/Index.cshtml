@@ -1,0 +1,66 @@
+﻿@model List<Piloto>
+@{
+    ViewData["Title"] = "Pilotos";
+}
+
+@section Banner {
+    <div class="alert alert-info text-center">
+        Quer se juntar à nossa equipe? Clique aqui para se inscrever!
+    </div>
+}
+
+<h1>Pilotos</h1>
+
+<mensagem texto="@TempData["msg"]" class="alert alert-danger"></mensagem>
+
+<a asp-action="Cadastrar" class="btn btn-sm btn-outline-danger">Cadastrar</a>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Nacionalidade</th>
+        <th>Número de Licença</th>
+        <th>Data de Expiração da Licença</th>
+        <th>Tipo de Licença</th>
+        <th></th>
+    </tr>
+    @foreach (var piloto in Model)
+    {
+        <tr>
+            <td>@piloto.Nome</td>
+            <td>@piloto.Idade</td>
+            <td>@piloto.Nacionalidade</td>
+            <td>@piloto.NumeroLicenca</td>
+            <td>@piloto.DataExpiracaoLicenca.ToString("dd/MM/yyyy")</td>
+            <td>@piloto.TipoLicencaPiloto</td>
+            <td>
+                <a asp-action="Editar" class="btn btn-sm btn-outline-primary" asp-route-id="@piloto.Id">Editar</a>
+                <button onclick="pilotoId.value = @piloto.Id" type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Remover
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente apagar o piloto?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Remover">
+                    <input name="id" type="hidden" id="pilotoId" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model Piloto
+
+<div class="form-group">
+    <label asp-for="Nome"></label>
+    <input asp-for="Nome" class="form-control" />
+    <span asp-validation-for="Nome" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Idade"></label>
+    <input asp-for="Idade" class="form-control" />
+    <span asp-validation-for="Idade" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Nacionalidade"></label>
+    <input asp-for="Nacionalidade" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="NumeroLicenca"></label>
+    <input asp-for="NumeroLicenca" class="form-control" />
+    <span asp-validation-for="NumeroLicenca" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DataExpiracaoLicenca"></label>
+    <div class="input-group">
+        <input asp-for="DataExpiracaoLicenca" class="form-control datepicker" type="text" data-date-format="dd/mm/yy" />
+        <span class="input-group-text">
+            <i class="fa fa-calendar"></i>
+        </span>
+    </div>
+    <span asp-validation-for="DataExpiracaoLicenca" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="TipoLicencaPiloto"></label>
+    <select asp-for="TipoLicencaPiloto" class="form-control">
+        <option value="Amador">Amador</option>
+        <option value="Nacional">Nacional</option>
+        <option value="Internacional">Internacional</option>
+        <option value="Formula1">Formula 1</option>
+        <option value="Rally">Rally</option>
+        <option value="Kart">Kart</option>
+        <option value="Arrancada">Arrancada</option>
+        <option value="ClubeEsportivo">Clube Esportivo</option>
+    </select>
+</div>
